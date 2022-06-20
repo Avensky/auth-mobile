@@ -11,6 +11,7 @@ npm-debug.*
 web-build/
 server/node_modules
 client/node_modules
+dev.js
 
 # macOS
 .DS_Store

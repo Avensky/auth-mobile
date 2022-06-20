@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose')
-
+const keys = require('./keys/keys')
 const app = express();
 
 app.use(express.json());
@@ -18,7 +18,7 @@ app.get('/api/user/profile', verifyToken, (req, res) => {
 
 app.use('/api/users', authRoutes);
 
-mongoose.connect('', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         app.listen(3000, () => console.log('Server is running'));
     })

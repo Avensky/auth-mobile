@@ -3,7 +3,7 @@ export const REGISTER_USER_FAIL = 'REGISTER_USER_FAIL';
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
 export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://192.168.100.7:3000';
 
 export const registerUser = (authData) => {
     const {fullName, email, password} = authData;
@@ -25,12 +25,15 @@ export const registerUser = (authData) => {
 
         const resultData = await result.json();
 
+        
         if(resultData.success) {
+            console.log('resultData ', resultData)
             dispatch({
                 type: REGISTER_USER_SUCCESS,
                 payload: resultData
             });
         } else {
+            console.log('resultData fail', resultData)
             dispatch({
                 type: REGISTER_USER_FAIL
             });
